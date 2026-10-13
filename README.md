@@ -1,5 +1,9 @@
 # Arkiv Vault
 
+**Live Demo:** https://arkiv-vault.vercel.app/
+
+**Network:** Arkiv Tiramisu Testnet (Chain ID: 7738577)
+
 **Encrypted Evidence Storage with Verifiable Selective Disclosure**
 
 Arkiv Vault is a privacy-focused application built on Arkiv Network. It allows users to encrypt evidence locally, publish encrypted records, recover them securely, and disclose selected fields with cryptographic proofs.
@@ -75,9 +79,23 @@ The following workflow was manually tested on Arkiv Tiramisu:
 5. Verify an authentic disclosure against Arkiv.
 6. Reject a disclosure with a tampered field value.
 
-Public demo entity key:
+### Latest Published Demo Entity
 
-0x0a8e134677220b6023c131883a941168022a44be005d526a4bd5053232d80160
+The following encrypted evidence entity was published successfully on Arkiv Tiramisu on October 13, 2026.
+
+**Entity key:**
+
+`0xbf73b41c9289b8ba8193f63af54bb88ae9170e99d05645ba4447a2377dfb4bbb`
+
+**Transaction hash:**
+
+`0xba979d83fac3bb03ac78c594e6836f6aa856cf0ded1068550faad8cb7a59cef2`
+
+The entity was confirmed through the Arkiv SDK with an encrypted payload, a v3 salted Merkle root, and a 30-day expiration configuration.
+
+The full encryption, retrieval, selective disclosure, valid-proof verification, and tamper-rejection workflow was also tested end-to-end using an earlier evidence entity.
+
+**Try the application:** https://arkiv-vault.vercel.app/
 
 ## Security and Limitations
 
@@ -87,7 +105,7 @@ Public demo entity key:
 - Verification proves consistency with a commitment, not real-world truth.
 - Verification depends on the Arkiv RPC endpoint.
 - This is not a zero-knowledge proof system.
-- Published entities currently expire after seven days.
+- Newly published entities use a 30-day expiration setting. Actual availability depends on Arkiv network conditions and block progression.
 - The prototype has not undergone an independent security audit.
 
 ## Network
