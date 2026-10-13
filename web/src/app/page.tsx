@@ -43,15 +43,19 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-6">
         <header className="flex items-center justify-between border-b border-white/10 py-6">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-400 text-xl font-black text-slate-950">
-              A
-            </div>
+            <img
+              src="/icon.svg"
+              alt="Arkiv Vault logo"
+              width="40"
+              height="40"
+              className="h-10 w-10 rounded-xl"
+            />
             <div>
               <div className="text-lg font-bold tracking-wider">
                 ARKIV VAULT
               </div>
               <div className="text-[10px] uppercase tracking-[0.25em] text-slate-400">
-                Private by Design
+                Private Evidence. Verifiable Proof.
               </div>
             </div>
           </div>
