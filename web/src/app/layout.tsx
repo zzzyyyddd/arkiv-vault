@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Arkiv Vault | Encrypted Evidence",
-  description: "Encrypted evidence storage and selective disclosure on Arkiv.",
+  title: "Arkiv Vault | Encrypted Evidence & Selective Disclosure",
+  description: "Encrypt sensitive evidence, store it on Arkiv, and selectively disclose verifiable information without revealing the full document.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
