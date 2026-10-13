@@ -1,3 +1,31 @@
+## Product Walkthrough
+
+### 1. Arkiv Vault Dashboard
+
+![Arkiv Vault Dashboard](docs/screenshots/01-homepage.png)
+
+### 2. Publish Encrypted Evidence
+
+![Publish Success](docs/screenshots/02-publish-success.png)
+
+### 3. Retrieve and Decrypt Evidence
+
+![Retrieve and Decrypt](docs/screenshots/03-retrieve-decrypt.png)
+
+### 4. Selective Disclosure
+
+![Selective Disclosure](docs/screenshots/04-selective-disclosure.png)
+
+### 5. Verify Authentic Evidence
+
+![Valid Verification](docs/screenshots/05-verification-valid.png)
+
+### 6. Detect Tampered Evidence
+
+![Invalid Verification](docs/screenshots/06-verification-invalid.png)
+
+---
+
 # Arkiv Vault
 
 **Live Demo:** https://arkiv-vault.vercel.app/
