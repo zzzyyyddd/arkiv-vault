@@ -44,7 +44,7 @@ export async function publishEncryptedEvidence(
           }
         : {}),
     },
-    expires: ExpirationTime.fromDays(7),
+    expires: ExpirationTime.fromDays(30),
     flags: {
       readonly: true,
     },
