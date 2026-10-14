@@ -113,13 +113,13 @@ The following encrypted evidence entity was published successfully on Arkiv Tira
 
 **Entity key:**
 
-`0xbf73b41c9289b8ba8193f63af54bb88ae9170e99d05645ba4447a2377dfb4bbb`
+`0x70f5bc6134bf732514fea6575f11a5e3c89e8f12f4feddccc3b000251b49523e`
 
 **Transaction hash:**
 
-`0xba979d83fac3bb03ac78c594e6836f6aa856cf0ded1068550faad8cb7a59cef2`
+`0x513097029bfb2ebb8050ad3eedab47d5eb3306ed4ed6bd29b8ed60457777c76d`
 
-The entity was confirmed through the Arkiv SDK with an encrypted payload, a v3 salted Merkle root, and a 30-day expiration configuration.
+The application published encrypted evidence through the Arkiv SDK with a v3 salted Merkle commitment.
 
 The full encryption, retrieval, selective disclosure, valid-proof verification, and tamper-rejection workflow was also tested end-to-end using an earlier evidence entity.
 
