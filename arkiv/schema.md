@@ -71,6 +71,98 @@ by the disclosure package.
 It then checks the disclosure using the application's
 Merkle proof verification implementation.
 
+
+## Exact EncryptedEvidence Payload Schema
+
+The JSON payload stored in Arkiv follows the TypeScript
+`EncryptedEvidence` type.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| version | 1, 2, or 3 | Current publisher produces version 3 |
+| algorithm | string | Always AES-256-GCM |
+| iv | string | Base64-encoded 12-byte initialization vector |
+| ciphertext | string | Base64-encoded encrypted evidence |
+| authTag | string | Base64-encoded 16-byte authentication tag |
+| merkleRoot | optional string | Salted Merkle commitment |
+
+For v3, the encrypted plaintext contains an object with:
+
+- format: arkiv-vault-private-payload-v3
+- evidence: the original evidence object
+- salts: per-field random salts used for commitments
+
+These private values are encrypted together before publishing.
+
+## Exact DisclosurePackageV3 Schema
+
+The disclosure package is a separate JSON document:
+
+| Field | Type | Description |
+| --- | --- | --- |
+| format | string | arkiv-vault-disclosure-v3 |
+| sourceEntityKey | string | Arkiv entity key, 0x plus 64 hex characters |
+| disclosedAt | string | ISO 8601 timestamp |
+| disclosedFields | object | Mapping of disclosed field names to proof data |
+
+Each entry in `disclosedFields` contains:
+
+| Field | Type | Description |
+| --- | --- | --- |
+| value | any JSON value | Disclosed evidence field value |
+| salt | string | Salt associated with that field |
+| proof | array | Merkle proof steps for the disclosed field |
+
+The verifier retrieves the trusted `merkle_root` attribute
+from Arkiv using `sourceEntityKey`.
+
+A disclosure package does not need to expose the AES key,
+the full evidence document, or undisclosed field values.
+
+
+## Merkle Proof Construction (v3)
+
+Evidence fields are sorted alphabetically before building
+the Merkle tree.
+
+Each field receives a cryptographically random 32-byte salt,
+represented as 64 lowercase hexadecimal characters.
+
+A leaf hash is computed as SHA-256 of the UTF-8 encoding of:
+
+    JSON.stringify([
+      "arkiv-vault-salted-leaf-v3",
+      fieldName,
+      fieldValue,
+      salt
+    ])
+
+An internal node is computed as SHA-256 of the following bytes:
+
+    0x01 || leftHashBytes || rightHashBytes
+
+Each hash is 32 bytes. When a tree level contains an odd
+number of nodes, the final node is duplicated.
+
+### MerkleProofStep
+
+Each proof step contains:
+
+| Field | Type | Description |
+| --- | --- | --- |
+| hash | string | Sibling hash, 64 lowercase hexadecimal characters |
+| position | "left" or "right" | Position of the sibling relative to the current hash |
+
+Verification starts with the disclosed field's salted leaf hash.
+
+For each proof step, the verifier combines the sibling hash
+on the indicated side and computes the parent hash.
+
+The resulting root must equal the trusted `merkle_root`
+attribute retrieved independently from Arkiv.
+
+A modified field value, salt, or proof should fail verification.
+
 ## Verification Flow
 
 1. A user encrypts evidence locally.

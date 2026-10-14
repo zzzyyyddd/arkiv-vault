@@ -35,6 +35,7 @@ Our initial implementation used:
 ```typescript
 expires: ExpirationTime.fromDays(7)
 ```
+
 We later realized that seven days might be insufficient
 for judges to access the evidence during evaluation.
 
