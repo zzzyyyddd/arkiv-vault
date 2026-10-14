@@ -155,8 +155,8 @@ commitments to the Arkiv Tiramisu testnet.
 | Network | Arkiv Tiramisu Testnet |
 | Chain ID | `7738577` |
 | Publisher wallet | `0x0068bEAe5c69f1eeca972C5b843C6131FFc17dEB` |
-| Demo entity key | `0xbf73b41c9289b8ba8193f63af54bb88ae9170e99d05645ba4447a2377dfb4bbb` |
-| Demo transaction hash | `0xba979d83fac3bb03ac78c594e6836f6aa856cf0ded1068550faad8cb7a59cef2` |
+| Demo entity key | `0x70f5bc6134bf732514fea6575f11a5e3c89e8f12f4feddccc3b000251b49523e` |
+| Demo transaction hash | `0x513097029bfb2ebb8050ad3eedab47d5eb3306ed4ed6bd29b8ed60457777c76d` |
 
 The publisher wallet is a dedicated testnet wallet used
 for Arkiv Vault development.
